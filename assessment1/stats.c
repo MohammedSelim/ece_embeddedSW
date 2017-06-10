@@ -9,8 +9,7 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file Statistics implementation file (stats.c)
  *
  * <Add Extended Description Here>
  *
@@ -27,17 +26,88 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
+/* Index of maximum and mimimum elements */
+#define DESCENDING_ORDER_MAX (0) 
+#define DESCENDING_ORDER_MIN (SIZE - 1)
+
 void main() {
 
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
+  unsigned char array[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+  /* Create a structure of 4 elements to store 
+   * minimum, maximum, mean and median inside */
+  statistics_t object;
+  
+  /* Sort array element first to ease the
+   * statistics of an  the array to find */
+  sort_array(array);
+
+  /* Call statistics functions */
+  object.minimum = find_minimum(array);
+  object.maximum = find_maximum(array);
+  object.mean    = find_mean(array);
+  object.median  = find_median(array);
+
+  /* Display minimum, maximum, mean and median */
+  print_statistics(&object);
+
+  /* Display array's elements in ascending order */
+  print_array(array);
 
 }
 
-/* Add other Implementation File Code Here */
+
+
+
+/* Functions implementation */
+
+void sort_array(unsigned char *array)
+{
+
+}
+
+
+
+unsigned char find_maximum(unsigned char *array)
+{
+
+}
+
+
+
+unsigned char find_minimum(unsigned char *array)
+{
+    
+}
+
+
+
+unsigned char find_median(unsigned char *array)
+{
+    
+}
+
+
+
+unsigned char find_mean(unsigned char *array)
+{
+
+}
+
+
+
+void print_statistics(statistics_t *pobject)
+{
+
+}
+
+
+
+void print_array(unsigned char *array)
+{
+
+}
