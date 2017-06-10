@@ -11,10 +11,10 @@
 /**
  * @file Statistics implementation file (stats.c)
  *
- * <Add Extended Description Here>
+ * This file contains all functions implementation
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Mohammed Selim
+ * @date 10 JUNE 2017
  *
  */
 
@@ -67,6 +67,21 @@ void main() {
 
 void sort_array(unsigned char *array)
 {
+    unsigned int out_idx, inner_idx;
+    unsigned char temp;
+
+    for (out_idx = 0; out_idx < SIZE - 1; out_idx++)
+    {
+        for (inner_idx = 0; inner_idx < SIZE - out_idx - 1; inner_idx++)
+        {
+            if (array[inner_idx + 1] > array[inner_idx])
+            {
+                temp = array[inner_idx + 1];
+                array[inner_idx + 1] = array[inner_idx];
+                array[inner_idx] = temp;
+            }
+        }
+    }
 
 }
 
@@ -74,40 +89,58 @@ void sort_array(unsigned char *array)
 
 unsigned char find_maximum(unsigned char *array)
 {
-
+    return array[DESCENDING_ORDER_MAX];
 }
 
 
 
 unsigned char find_minimum(unsigned char *array)
 {
-    
+    return array[DESCENDING_ORDER_MIN];
 }
 
 
 
 unsigned char find_median(unsigned char *array)
 {
-    
+    return array[SIZE / 2];
 }
 
 
 
 unsigned char find_mean(unsigned char *array)
 {
+    unsigned int sum = 0;
+    unsigned int idx;
 
+    for (idx = 0; idx < SIZE; idx++)
+    {
+        sum += array[idx];
+    }
+
+    return (sum / SIZE);
 }
 
 
 
 void print_statistics(statistics_t *pobject)
 {
-
+    printf("Statistics of the array :\n");
+    printf("Minimum\t%d\nMaximum\t%d\n", pobject -> minimum, pobject -> maximum);
+    printf("Mean\t%d\nMedian\t%d\n", pobject -> mean, pobject -> median);
 }
 
 
 
 void print_array(unsigned char *array)
 {
+    unsigned int idx;
+
+    printf("\n\nDisplay array's elements after sorting process:\n");
+    for (idx = 0; idx < SIZE; idx++)
+    {
+        printf("Array's element #%d\t%d\n",(idx), array[idx]);
+    }
 
 }
+
